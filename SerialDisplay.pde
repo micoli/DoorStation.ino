@@ -1,5 +1,4 @@
 #include <Wire.h>
-#include <ArduinoJson.h>
 
 #include "UIMenu.h"
 #include "PushButtons.h"
@@ -14,13 +13,13 @@ double millisDelta=0;
 void setup(){
 	Serial.begin(115200);
 
-	uimenu.addItem((char *)"Jaime"				,(char *)"01234567");
-	uimenu.addItem((char *)"Velvet Frida Vowell",(char *)"01234567");
-	uimenu.addItem((char *)"Frida Forne"		,(char *)"01234567");
-	uimenu.addItem((char *)"Marlyn Muldowney 12",(char *)"01234567");
-	uimenu.addItem((char *)"America Ausmus"		,(char *)"01234567");
-	uimenu.addItem((char *)"Alissa Aberle"		,(char *)"01234567");
-	uimenu.addItem((char *)"Clarissa Coltuithar",(char *)"01234567");
+	uimenu.addItem((char *)"01 Jaime"				,(char *)"01234567");
+	uimenu.addItem((char *)"02 Velvet Frida Vowell"	,(char *)"01234567");
+	uimenu.addItem((char *)"03 Frida Forne"			,(char *)"01234567");
+	uimenu.addItem((char *)"04 Marlyn Muldowney 12"	,(char *)"01234567");
+	uimenu.addItem((char *)"05 America Ausmus"		,(char *)"01234567");
+	uimenu.addItem((char *)"06 Alissa Aberle"		,(char *)"01234567");
+	uimenu.addItem((char *)"07 Clarissa Coltuithar"	,(char *)"01234567");
 
 	uimenu.print(1,uimenu.items[0].label);
 

@@ -11,6 +11,7 @@
 #include "Arduino.h"
 #include <LiquidCrystal_I2C.h>
 #include "SerialComm.h"
+#include "CString.h"
 
 
 typedef struct menuItem{
@@ -27,7 +28,7 @@ class UIMenu{
 		UIMenu(uint8_t lcd_Addr,uint8_t lcd_cols,uint8_t lcd_rows, SerialComm * pserialComm);
 		void print(uint8_t row,char * text);
 		void print(uint8_t row,double text);
-		void getMenuText(int isSelected,char* to,const char* from);
+		void getMenuText(bool isSelected,char* to,const char* from);
 		void clearItems();
 		void displayList();
 		void resetList();
@@ -40,22 +41,22 @@ class UIMenu{
 		void backlightOn();
 		void backlightOff();
 		void loop();
-		void initAnim();
+		void initAnimation();
+		int nbItems=0;
 		menuItem items[32];
-		double backlightTimerLength = 3000;
+		double backlightTimerLength = 10000;
 		LiquidCrystal_I2C lcd;
 	protected:
-		int nbItems=0;
 		int selected = 0;
 	private:
 		SerialComm* serialComm;
 		void restartTimer();
-		int offset = 0;
 		int backlightTimerId = -1;
 		int displayMode=0;
-		int animOffset=0;
 		int animWay=1;
 		int selectedLine=-1;
+		unsigned int offset = 0;
+		unsigned int animOffset=0;
 		unsigned long lastRefreshMillis=0;
 };
 
